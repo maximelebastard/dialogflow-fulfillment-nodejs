@@ -376,6 +376,19 @@ class WebhookClient {
   }
 
   /**
+   * Set the fulfillmentText
+   *
+   * @param {string} text a string representing the fulfillmentText
+   */
+  setFulfillmentText(text) {
+    if (typeof text !== 'string' || !text) {
+      throw new Error('Fulfillment text must be a string');
+    }
+
+    this.client.setFulfillmentText_(text);
+  }
+
+  /**
    * Set the followup event
    *
    * @example
