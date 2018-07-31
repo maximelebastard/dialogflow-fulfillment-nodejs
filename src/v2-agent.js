@@ -260,6 +260,16 @@ class V2Agent {
     v1Context.parameters = v2Context.parameters;
     return v1Context;
   }
+  
+  /**
+   * Add a v2 fulfillmentText
+   *
+   * @param {string} text a string representing the fulfillmentText
+   * @private
+   */
+  setFulfillmentText_(text) {
+    this.agent.fulfillmentText_ = text;
+  }
 
   /**
    * Add a v2 fulfillmentText
