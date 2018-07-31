@@ -221,6 +221,9 @@ class V2Agent {
     if (this.agent.endConversation_) {
       responseJson.triggerEndOfConversation = this.agent.endConversation_;
     }
+    if (this.agent.fulfillmentText_) {
+      responseJson.fulfillmentText = this.agent.fulfillmentText_;
+    }
 
     debug('Response to Dialogflow: ' + JSON.stringify(responseJson));
     this.agent.response_.json(responseJson);
@@ -276,16 +279,6 @@ class V2Agent {
     v1Context.lifespan = v2Context.lifespanCount;
     v1Context.parameters = v2Context.parameters;
     return v1Context;
-  }
-
-  /**
-   * Add a v2 fulfillmentText
-   *
-   * @param {string} text a string representing the fulfillmentText
-   * @private
-   */
-  setFulfillmentText_(text) {
-    this.agent.fulfillmentText_ = text;
   }
 
   /**
